@@ -1,0 +1,156 @@
+
+//blogs styles CSS
+
+.blogs-main{
+    display: grid;
+    
+}
+.new-post-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: $customGrayColor;
+    padding: 20px 100px;
+    z-index: 3;
+     
+    
+    
+}
+.img-new-post{
+    padding-top: 10px;
+    img{
+        width: 90%;
+        align-items: center;
+    }
+}
+
+.block-img{
+    grid-column:1;
+    
+}
+
+.link{
+    text-decoration: underline;
+        &:hover{
+            text-decoration: none;
+        }
+}
+
+.text-new-post{
+    grid-column:2;
+    display: grid;
+    justify-content: space-between;
+    margin: 50px;
+    p{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+.btn-blogs{
+    background-color: transparent;
+    border: 1px solid $customGreenColor;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    font-size: map-get($fs, x-small);
+
+}
+
+
+
+.new-blogs-container{
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    background-color: $customBlackColor;
+    
+    
+}
+.articles-container{
+    display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    flex-flow: row wrap;//Reamplaz las 2 anteriores lineas
+    justify-content: space-around;
+    //align-items: center; // cuando solo hay una sola fila
+    align-content: center; // cuando hay varias filas de elementos  
+    font-size: map-get($fs, small);
+    grid-column: 2; //agragar en la segunda columna
+
+   
+    h3{
+        width: 100%;
+        font-size: map-get($fs , normal );
+        text-align: center;
+        border-bottom: 1px solid $customGrayColor;
+        padding:20px 0px 20px 0px ;
+        color: white;   
+    }
+    
+}
+
+.post-container{
+    width: 320px;   
+    padding: 10px;
+    margin: 10px 5px 5px 5px;
+    border-radius: 5px;
+    color:white;
+    box-shadow: 1px 1px 4px 1px $colorShadow1, 1px 1px 12px 1px  $colorShadow2;
+
+    z-index: 2;
+  
+    img{
+        width: 100%;
+        margin-bottom: 35px;
+        border-radius: 10px;
+        
+    }
+    p{
+        margin-bottom: 35px;
+        
+    }
+    a{
+        color: white;
+    }
+}
+
+.title-post{
+    font-size: map-get($fs, small) +1px;
+    font-weight: 700 ;
+}
+
+
+@media only screen and (min-width: 401px) and (max-width: 1040px) {
+
+
+    .new-post-container{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        background-color: $customGrayColor;
+        padding: 2% 8%;
+        z-index: 3;
+         
+    .img-new-post{
+            padding-top: 0px;
+            img{
+                width: 100%;
+                align-items: center;
+            }
+        }   
+        
+    }
+    .block-img{
+        grid-column:none;
+        grid-row: 1;
+    }
+    .text-new-post{
+        grid-column:none;
+        grid-row: 2;
+
+    }
+
+}
+

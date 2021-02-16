@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import"variables";
+@import"fonts";
+@import"icons";
+
+body{
+    font-family: 'Roboto Mono',monospace;
+    margin: 0;
+    padding: 0;
+
+   
+    
+    }
+
+.no-scroll{
+    
+     //ajustar la pantalla para no hacer scroll
+     position: fixed;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+}    
+
+header{
+    width: 100%;
+    height: 140px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    
+    .header--icons-container{
+        width:100%;
+        height: 50px;
+        display: grid;
+        background-color: $customGreenColor;
+        z-index: 3;
+        .icons{
+            width:300px;
+            height: flex;
+            display: flex;
+            // justify-items: flex-end;
+            align-items: center;
+            justify-content: space-between;
+            justify-self: end;
+            margin-right: 50px;
+        } 
+    }
+
+
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 90px;
+    background-color: white;
+    z-index: 3;
+    .nav-logo-container{
+        margin-left: 50px;
+        display: flex;
+
+        align-items: center;
+        img{
+            width: 220px;
+            
+        }
+    }
+    .profile-link{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 50px;
+    }
+}
+
+.img-icons{
+    width: $iconSize;
+    height: $iconSize;
+    
+}
+
+.page-image{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: 100%;
+
+    background-image: url("../assets/images/fondo3.jpg");
+
+    background-position: center; //centrar imagen       
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    section{
+        display: grid; 
+        grid-column: 2; //todo lo que tenga el section estara ubicado en la columna dos del grid
+        justify-items: center;
+        height: 350px;
+        margin-top: 80px;
+    }
+}
+.page-text{
+    color: white;
+    font-size: map-get($fs, normal);
+    font-weight: 700;
+    letter-spacing: 10px; //espaciamiento entre letras
+    text-align: center;
+}
+
+.page-btn{
+    background: $customGreenColor;
+    width: 110px;
+    height: 50px;
+    font-weight: 700;
+    font-size: map-get($fs,small);
+    display: grid;
+    text-align: center ;
+    align-items: center;
+}
+
+@import"blogsStyles";
+@import"poststyle";
+@import"profileStyles";
+
+footer{
+    width: 100%;
+    height: 90px;
+    background-color: $customBlackColor;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    border-top: 35px solid $customGreenColor;
+    
+    p{
+        
+        color: white;
+    }
+}
+
+
+
+@import "links";
+@import "animations";
+

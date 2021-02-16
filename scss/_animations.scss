@@ -1,0 +1,82 @@
+
+//Variables
+//Se define el numero de particulas y el numero de animaciones
+
+$numParts : 10; //Numero de particulas. NOTA: se debe colocar el mismo de divscon la clase "particula"  en el htmlDoc
+$numAnima: 3; //Numero de animaciones
+
+//Ejemplo de lo que debe ir en el docHtml si mi numero de particulas es 3:
+// <div class="animacion">
+// <div class="particula"></div>
+// <div class="particula"></div>
+// <div class="particula"></div>
+// </div>
+
+
+.particula{
+    border-radius: 50%;
+    background-color: white;
+    opacity: .3;
+
+    position: fixed;
+    bottom: -50; //Debe ser menor al maximo tamaño de la particula($size) para que con el retardo no e vea en la pantalla
+}
+.animacion{
+    position: fixed;
+}
+
+
+@for $i from 1 through $numParts{
+    $size: round( 10px + random()*20px) ; //tamaño de la particula, minimo 10px
+    $dur: round( 5 + random()*10s) ; //duracion de la animacion 
+    $pos: round( random()*100%) ; //posicon inicial de la particula
+    $delay: round( random()*5s ); //retardo de la animacion
+
+    .particula:nth-child(#{$i}){
+        width: $size;
+        height: $size;
+        left:$pos; //Posicion a la derecha que tengra la particula
+        z-index: 1;
+        animation: animacion#{ random($limit: 3)} $dur linear infinite;
+        //animation: animacion1 $dur linear infinite;
+        animation-delay: $delay;
+    }
+ }
+
+
+ @for $j from 1 through $numAnima{
+    $desp: round( random()*300px); //Desplazamiento en eje x de las particulas
+    @keyframes animacion#{$j} {
+        0%{
+            bottom: 0;
+            opacity: 0;
+        }
+        25%{
+            background-color: rgb(255, 255, 0);
+            transform: translateX( $desp );
+            
+        }
+        30%{
+            background-color: rgb(185, 63, 63);
+        }
+        50%{
+            opacity: .4;
+            background-color: $customGreenColor;
+            
+        }
+        75%{
+            background-color: rgb(108, 185, 63);
+            transform: translateX( -$desp );
+        }
+        80%{
+            background-color: rgb(174, 0, 255);
+        }
+        100%{
+            bottom: 100%;
+            opacity: 0;
+        }
+    }
+
+ }
+
+
